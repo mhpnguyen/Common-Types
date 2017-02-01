@@ -13,7 +13,7 @@
     <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
 
-    <name>CONNECT common types</name>
+    <name>CONNECT common typesTest</name>
 
     <scm>
         <connection>scm:git:git@github.com:${git.username}/Common-Types.git</connection>

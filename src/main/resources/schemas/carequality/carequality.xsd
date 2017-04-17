@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:gov:hhs:fha:nhinc:common:carequality" 
+    xmlns:addr="http://www.w3.org/2005/08/addressing" targetNamespace="urn:gov:hhs:fha:nhinc:common:carequality" 
+    blockDefault="#all" 
+    elementFormDefault="qualified"
+    finalDefault=""
+    attributeFormDefault="unqualified">
+  <xsd:import namespace="http://www.w3.org/2005/08/addressing" schemaLocation="../www.w3.org/2005/08/addressing/ws-addr.xsd" />
+  <xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="../www.w3.org/2001/xml.xsd"/>
+
+  <xsd:element name="AccessDenial" type="tns:AccessDenialType"/>
+  <xsd:complexType name="AccessDenialType">
+    <xsd:sequence>
+      <xsd:element name="Reason" type="tns:ReasonType"/>
+      <xsd:element name="Code" type="xsd:QName" minOccurs="0"/>
+      <xsd:element name="Detail" type="tns:DetailType" minOccurs="0"/>
+    </xsd:sequence>
+    <xsd:attribute name="isPartialDenial" type="xsd:boolean" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="ReasonType">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute ref="xml:lang" use="required"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="DetailType">
+    <xsd:sequence>
+      <xsd:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+    <xsd:anyAttribute namespace="##other" processContents="lax" />
+  </xsd:complexType>
+
+
+
+
+</xsd:schema>
